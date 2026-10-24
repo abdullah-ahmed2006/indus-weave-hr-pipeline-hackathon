@@ -1,41 +1,41 @@
 check_name,table_name,status,expected,actual,details,checked_at
-PK not-null: dim_department.dept_id,dim_department,PASS,0,0,Primary key must not be null,2026-10-25T03:45:27
-PK unique: dim_department.dept_id,dim_department,PASS,0,0,Primary key must be unique,2026-10-25T03:45:27
-PK not-null: dim_shift.shift_code,dim_shift,PASS,0,0,Primary key must not be null,2026-10-25T03:45:27
-PK unique: dim_shift.shift_code,dim_shift,PASS,0,0,Primary key must be unique,2026-10-25T03:45:27
-PK not-null: dim_date.date_key,dim_date,PASS,0,0,Primary key must not be null,2026-10-25T03:45:27
-PK unique: dim_date.date_key,dim_date,PASS,0,0,Primary key must be unique,2026-10-25T03:45:27
-PK not-null: dim_employee.employee_sk,dim_employee,PASS,0,0,Primary key must not be null,2026-10-25T03:45:27
-PK unique: dim_employee.employee_sk,dim_employee,PASS,0,0,Primary key must be unique,2026-10-25T03:45:27
-PK not-null: fact_attendance_daily.attendance_sk,fact_attendance_daily,PASS,0,0,Primary key must not be null,2026-10-25T03:45:27
-PK unique: fact_attendance_daily.attendance_sk,fact_attendance_daily,PASS,0,0,Primary key must be unique,2026-10-25T03:45:27
-PK not-null: fact_leave_day.leave_day_sk,fact_leave_day,PASS,0,0,Primary key must not be null,2026-10-25T03:45:27
-PK unique: fact_leave_day.leave_day_sk,fact_leave_day,PASS,0,0,Primary key must be unique,2026-10-25T03:45:27
-PK not-null: fact_overtime_approved.request_id,fact_overtime_approved,PASS,0,0,Primary key must not be null,2026-10-25T03:45:27
-PK unique: fact_overtime_approved.request_id,fact_overtime_approved,PASS,0,0,Primary key must be unique,2026-10-25T03:45:27
-PK not-null: fact_payroll_line.line_id,fact_payroll_line,PASS,0,0,Primary key must not be null,2026-10-25T03:45:27
-PK unique: fact_payroll_line.line_id,fact_payroll_line,PASS,0,0,Primary key must be unique,2026-10-25T03:45:27
-Foreign key integrity,warehouse,PASS,0,0,Rows returned by PRAGMA foreign_key_check,2026-10-25T03:45:27
-No negative worked hours,fact_attendance_daily,PASS,0,0,Worked hours below zero,2026-10-25T03:45:27
-No shift longer than 16 hours,fact_attendance_daily,PASS,0,0,Check-in/check-out span > 16 hours,2026-10-25T03:45:28
-Accepted attendance statuses,fact_attendance_daily,PASS,0,0,Allowed status values checked,2026-10-25T03:45:28
-Accepted payroll components,fact_payroll_line,PASS,0,0,Source dictionary pay component list,2026-10-25T03:45:28
-Leave type populated,fact_leave_day,PASS,0,0,"Nonblank leave types observed: Annual, Casual, Sick",2026-10-25T03:45:28
-Accepted leave types,fact_leave_day,PASS,0,0,"Allowed values observed in the provided synthetic dataset: Annual, Casual, Sick; confirm against HR policy for future source files",2026-10-25T03:45:28
-No overlapping SCD2 ranges,dim_employee,PASS,0,0,Pairwise overlap check across employee versions,2026-10-25T03:45:28
-Raw/staging reconciliation: raw_employees,raw_employees,PASS,1316,1316,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T03:45:28
-Raw/staging reconciliation: raw_employment_history,raw_employment_history,PASS,3686,3686,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T03:45:28
-Raw/staging reconciliation: raw_biometric_punches,raw_biometric_punches,PASS,345280,345280,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T03:45:31
-Raw/staging reconciliation: raw_leave_requests,raw_leave_requests,PASS,5372,5372,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T03:45:31
-Raw/staging reconciliation: raw_overtime_requests,raw_overtime_requests,PASS,22098,22098,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T03:45:31
-Raw/staging reconciliation: raw_payroll_lines,raw_payroll_lines,PASS,53617,53617,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T03:45:32
-Raw/staging reconciliation: raw_departments,raw_departments,PASS,25,25,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T03:45:32
-Raw/staging reconciliation: raw_shifts,raw_shifts,PASS,4,4,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T03:45:32
-Raw/staging reconciliation: raw_holidays,raw_holidays,PASS,12,12,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T03:45:32
-Raw/staging reconciliation: raw_device_mapping,raw_device_mapping,PASS,1260,1260,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T03:45:32
-Raw/staging reconciliation: raw_shift_roster,raw_shift_roster,PASS,36402,36402,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T03:45:32
-Raw/staging reconciliation: raw_applications,raw_applications,PASS,3835,3835,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T03:45:32
-Filled roster preserves all deduplicated source weeks,stg_shift_roster,PASS,>=36402,39246,Filled weeks increase staged row count by design; source rows are reconciled separately,2026-10-25T03:45:32
-Attendance rows loaded to fact,fact_attendance_daily,PASS,217584,217584,One fact row per employee per scheduled day,2026-10-25T03:45:32
-Payroll lines loaded to fact,fact_payroll_line,PASS,53617,53617,Each source payroll line remains a fact line,2026-10-25T03:45:32
-Device clock correction documented and validated,stg_clock_correction_evidence,PASS,Correction supported by paired-shift evidence,Evidence present; DEV-SITE-01 correction -60 minutes,"Paired-shift validation for DEV-SITE-01: applied=-60 min; best tested=-60 min; paired shifts=41787; median absolute check-in deviation improved 12.77 min, check-out improved 26.89 min, combined error improved 11.53 min; all other devices prefer zero offset=True.",2026-10-25T03:45:32
+PK not-null: dim_department.dept_id,dim_department,PASS,0,0,Primary key must not be null,2026-10-25T04:06:51
+PK unique: dim_department.dept_id,dim_department,PASS,0,0,Primary key must be unique,2026-10-25T04:06:51
+PK not-null: dim_shift.shift_code,dim_shift,PASS,0,0,Primary key must not be null,2026-10-25T04:06:51
+PK unique: dim_shift.shift_code,dim_shift,PASS,0,0,Primary key must be unique,2026-10-25T04:06:51
+PK not-null: dim_date.date_key,dim_date,PASS,0,0,Primary key must not be null,2026-10-25T04:06:51
+PK unique: dim_date.date_key,dim_date,PASS,0,0,Primary key must be unique,2026-10-25T04:06:51
+PK not-null: dim_employee.employee_sk,dim_employee,PASS,0,0,Primary key must not be null,2026-10-25T04:06:51
+PK unique: dim_employee.employee_sk,dim_employee,PASS,0,0,Primary key must be unique,2026-10-25T04:06:51
+PK not-null: fact_attendance_daily.attendance_sk,fact_attendance_daily,PASS,0,0,Primary key must not be null,2026-10-25T04:06:51
+PK unique: fact_attendance_daily.attendance_sk,fact_attendance_daily,PASS,0,0,Primary key must be unique,2026-10-25T04:06:51
+PK not-null: fact_leave_day.leave_day_sk,fact_leave_day,PASS,0,0,Primary key must not be null,2026-10-25T04:06:51
+PK unique: fact_leave_day.leave_day_sk,fact_leave_day,PASS,0,0,Primary key must be unique,2026-10-25T04:06:51
+PK not-null: fact_overtime_approved.request_id,fact_overtime_approved,PASS,0,0,Primary key must not be null,2026-10-25T04:06:51
+PK unique: fact_overtime_approved.request_id,fact_overtime_approved,PASS,0,0,Primary key must be unique,2026-10-25T04:06:51
+PK not-null: fact_payroll_line.line_id,fact_payroll_line,PASS,0,0,Primary key must not be null,2026-10-25T04:06:51
+PK unique: fact_payroll_line.line_id,fact_payroll_line,PASS,0,0,Primary key must be unique,2026-10-25T04:06:51
+Foreign key integrity,warehouse,PASS,0,0,Rows returned by PRAGMA foreign_key_check,2026-10-25T04:06:52
+No negative worked hours,fact_attendance_daily,PASS,0,0,Worked hours below zero,2026-10-25T04:06:52
+No shift longer than 16 hours,fact_attendance_daily,PASS,0,0,Check-in/check-out span > 16 hours,2026-10-25T04:06:52
+Accepted attendance statuses,fact_attendance_daily,PASS,0,0,Allowed status values checked,2026-10-25T04:06:52
+Accepted payroll components,fact_payroll_line,PASS,0,0,Source dictionary pay component list,2026-10-25T04:06:52
+Leave type populated,fact_leave_day,PASS,0,0,"Nonblank leave types observed: Annual, Casual, Sick",2026-10-25T04:06:52
+Accepted leave types,fact_leave_day,PASS,0,0,"Allowed values observed in the provided synthetic dataset: Annual, Casual, Sick; confirm against HR policy for future source files",2026-10-25T04:06:52
+No overlapping SCD2 ranges,dim_employee,PASS,0,0,Pairwise overlap check across employee versions,2026-10-25T04:06:52
+Raw/staging reconciliation: raw_employees,raw_employees,PASS,1316,1316,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T04:06:52
+Raw/staging reconciliation: raw_employment_history,raw_employment_history,PASS,3686,3686,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T04:06:52
+Raw/staging reconciliation: raw_biometric_punches,raw_biometric_punches,PASS,345280,345280,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T04:06:52
+Raw/staging reconciliation: raw_leave_requests,raw_leave_requests,PASS,5372,5372,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T04:06:52
+Raw/staging reconciliation: raw_overtime_requests,raw_overtime_requests,PASS,22098,22098,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T04:06:52
+Raw/staging reconciliation: raw_payroll_lines,raw_payroll_lines,PASS,53617,53617,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T04:06:52
+Raw/staging reconciliation: raw_departments,raw_departments,PASS,25,25,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T04:06:52
+Raw/staging reconciliation: raw_shifts,raw_shifts,PASS,4,4,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T04:06:52
+Raw/staging reconciliation: raw_holidays,raw_holidays,PASS,12,12,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T04:06:52
+Raw/staging reconciliation: raw_device_mapping,raw_device_mapping,PASS,1260,1260,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T04:06:52
+Raw/staging reconciliation: raw_shift_roster,raw_shift_roster,PASS,36402,36402,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T04:06:52
+Raw/staging reconciliation: raw_applications,raw_applications,PASS,3835,3835,Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded,2026-10-25T04:06:52
+Filled roster preserves all deduplicated source weeks,stg_shift_roster,PASS,>=36402,39246,Filled weeks increase staged row count by design; source rows are reconciled separately,2026-10-25T04:06:52
+Attendance rows loaded to fact,fact_attendance_daily,PASS,217584,217584,One fact row per employee per scheduled day,2026-10-25T04:06:52
+Payroll lines loaded to fact,fact_payroll_line,PASS,53617,53617,Each source payroll line remains a fact line,2026-10-25T04:06:52
+Device clock correction documented and validated,stg_clock_correction_evidence,PASS,Correction supported by paired-shift evidence,Evidence present; DEV-SITE-01 correction -60 minutes,"Paired-shift validation for DEV-SITE-01: applied=-60 min; best tested=-60 min; paired shifts=41787; median absolute check-in deviation improved 12.77 min, check-out improved 26.89 min, combined error improved 11.53 min; all other devices prefer zero offset=True.",2026-10-25T04:06:52
