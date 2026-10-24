@@ -4,12 +4,12 @@ payroll_month,plant,dept_id,dept_name,computed_ot_hours,paid_ot_hours,excess_ot_
 2026-07,Faisalabad Plant,D20,Stitching,783.0,1440.5,657.5,83.97
 2026-06,Faisalabad Plant,D20,Stitching,708.0,1122.0,414.0,58.47
 2026-04,SITE Plant,D14,Dyeing,289.5,559.5,270.0,93.26
-2026-04,SITE Plant,D15,Finishing,243.5,491.0,247.5,101.64
+2026-04,SITE Plant,D15,Processing,243.5,491.0,247.5,101.64
 2026-06,SITE Plant,D14,Dyeing,254.5,482.0,227.5,89.39
 2026-05,SITE Plant,D14,Dyeing,358.0,563.0,205.0,57.26
 2026-06,SITE Plant,D15,Finishing,321.5,517.0,195.5,60.81
 2026-05,Faisalabad Plant,D20,Stitching,819.5,1008.0,188.5,23.0
-2026-05,SITE Plant,D15,Finishing,235.0,393.5,158.5,67.45
+2026-05,SITE Plant,D15,Processing,235.0,393.5,158.5,67.45
 2026-05,SITE Plant,D16,Maintenance,93.5,178.5,85.0,90.91
 2026-04,SITE Plant,D19,Utilities,63.0,147.5,84.5,134.13
 2026-06,SITE Plant,D19,Utilities,99.5,180.5,81.0,81.41

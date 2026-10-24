@@ -1,0 +1,13 @@
+device_id,candidate_correction_minutes,paired_employee_shifts,median_abs_checkin_deviation_min,median_abs_checkout_deviation_min,median_combined_boundary_error_min,pct_paired_shifts_both_within_60_min,best_tested_offset_minutes
+DEV-FSD-01,-60,46419,66.38,47.28,56.74,31.0,0
+DEV-FSD-01,0,46391,9.42,15.0,13.23,85.81,0
+DEV-FSD-01,60,45074,54.35,74.0,64.6,1.31,0
+DEV-HO-01,-60,16447,66.48,47.88,57.26,30.91,0
+DEV-HO-01,0,16447,9.33,13.53,12.29,92.9,0
+DEV-HO-01,60,16447,53.52,73.02,63.41,1.42,0
+DEV-KOR-01,-60,48153,66.52,47.37,56.88,30.52,0
+DEV-KOR-01,0,48130,9.33,14.85,13.05,86.76,0
+DEV-KOR-01,60,46923,54.2,73.87,64.43,1.37,0
+DEV-SITE-01,-60,41787,24.4,36.33,42.54,59.45,-60
+DEV-SITE-01,0,41191,37.17,63.22,54.07,42.8,-60
+DEV-SITE-01,60,39463,98.52,122.75,114.84,0.73,-60

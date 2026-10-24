@@ -1,6 +1,11 @@
 -- Q09: Monthly payroll cost = EARNING lines; per employee = cost / distinct paid employees.
 WITH month_depts AS (
- SELECT m.payroll_month,d.dept_id,d.dept_name,d.plant
+ SELECT m.payroll_month,d.dept_id,
+        CASE WHEN d.renamed_on IS NOT NULL
+                  AND m.payroll_month < substr(d.renamed_on,1,7)
+                  AND NULLIF(TRIM(d.previous_name),'') IS NOT NULL
+             THEN d.previous_name ELSE d.dept_name END AS dept_name,
+        d.plant
  FROM (SELECT payroll_month FROM employee_month_snapshot GROUP BY payroll_month) m
  CROSS JOIN dim_department d
 ), payroll AS (

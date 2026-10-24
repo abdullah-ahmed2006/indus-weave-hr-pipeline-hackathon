@@ -8,7 +8,7 @@ payroll_month,plant,dept_id,dept_name,payroll_cost,paid_employee_count,payroll_c
 2026-04,Head Office,D01,Human Resources,3006381.0,16,187898.81,,
 2026-04,Head Office,D02,Finance,3404824.0,20,170241.2,,
 2026-04,Head Office,D03,IT,2137811.0,14,152700.79,,
-2026-04,Head Office,D04,Supply Chain,2868450.0,18,159358.33,,
+2026-04,Head Office,D04,Procurement,2868450.0,18,159358.33,,
 2026-04,Head Office,D05,Sales & Marketing,4319204.0,23,187791.48,,
 2026-04,Head Office,D06,Administration,3709767.0,18,206098.17,,
 2026-04,Head Office,D07,Compliance,2639344.0,12,219945.33,,
@@ -19,7 +19,7 @@ payroll_month,plant,dept_id,dept_name,payroll_cost,paid_employee_count,payroll_c
 2026-04,Korangi Plant,D12,Warehouse,2359356.0,30,78645.2,,
 2026-04,Korangi Plant,D13,Production Planning,3561934.0,25,142477.36,,
 2026-04,SITE Plant,D14,Dyeing,8933696.0,112,79765.14,,
-2026-04,SITE Plant,D15,Finishing,7905140.0,100,79051.4,,
+2026-04,SITE Plant,D15,Processing,7905140.0,100,79051.4,,
 2026-04,SITE Plant,D16,Maintenance,2664595.0,34,78370.44,,
 2026-04,SITE Plant,D17,Quality Control,2401336.0,30,80044.53,,
 2026-04,SITE Plant,D18,Warehouse,2063512.0,26,79365.85,,
@@ -33,7 +33,7 @@ payroll_month,plant,dept_id,dept_name,payroll_cost,paid_employee_count,payroll_c
 2026-05,Head Office,D01,Human Resources,2995750.0,15,199716.67,3006381.0,-0.35
 2026-05,Head Office,D02,Finance,3298196.0,19,173589.26,3404824.0,-3.13
 2026-05,Head Office,D03,IT,2131626.0,14,152259.0,2137811.0,-0.29
-2026-05,Head Office,D04,Supply Chain,2858427.0,18,158801.5,2868450.0,-0.35
+2026-05,Head Office,D04,Procurement,2858427.0,18,158801.5,2868450.0,-0.35
 2026-05,Head Office,D05,Sales & Marketing,4644439.0,24,193518.29,4319204.0,7.53
 2026-05,Head Office,D06,Administration,3711382.0,18,206187.89,3709767.0,0.04
 2026-05,Head Office,D07,Compliance,2616626.0,13,201278.92,2639344.0,-0.86
@@ -44,7 +44,7 @@ payroll_month,plant,dept_id,dept_name,payroll_cost,paid_employee_count,payroll_c
 2026-05,Korangi Plant,D12,Warehouse,2297042.0,29,79208.34,2359356.0,-2.64
 2026-05,Korangi Plant,D13,Production Planning,3560557.0,25,142422.28,3561934.0,-0.04
 2026-05,SITE Plant,D14,Dyeing,8888539.0,114,77969.64,8933696.0,-0.51
-2026-05,SITE Plant,D15,Finishing,7817955.0,100,78179.55,7905140.0,-1.1
+2026-05,SITE Plant,D15,Processing,7817955.0,100,78179.55,7905140.0,-1.1
 2026-05,SITE Plant,D16,Maintenance,2624740.0,33,79537.58,2664595.0,-1.5
 2026-05,SITE Plant,D17,Quality Control,2260845.0,28,80744.46,2401336.0,-5.85
 2026-05,SITE Plant,D18,Warehouse,2122318.0,27,78604.37,2063512.0,2.85
@@ -58,7 +58,7 @@ payroll_month,plant,dept_id,dept_name,payroll_cost,paid_employee_count,payroll_c
 2026-06,Head Office,D01,Human Resources,3029845.0,15,201989.67,2995750.0,1.14
 2026-06,Head Office,D02,Finance,3314589.0,19,174452.05,3298196.0,0.5
 2026-06,Head Office,D03,IT,2262735.0,15,150849.0,2131626.0,6.15
-2026-06,Head Office,D04,Supply Chain,3056043.0,21,145525.86,2858427.0,6.91
+2026-06,Head Office,D04,Procurement,3056043.0,21,145525.86,2858427.0,6.91
 2026-06,Head Office,D05,Sales & Marketing,4942821.0,24,205950.88,4644439.0,6.42
 2026-06,Head Office,D06,Administration,3700874.0,18,205604.11,3711382.0,-0.28
 2026-06,Head Office,D07,Compliance,2641087.0,11,240098.82,2616626.0,0.93

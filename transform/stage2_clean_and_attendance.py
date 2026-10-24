@@ -75,54 +75,46 @@ def iso_datetime(series):
     return parsed.map(lambda x: x.strftime("%Y-%m-%d %H:%M:%S") if not pd.isna(x) else None)
 
 
-def _sqlite_safe_value(value):
-    """Convert pandas/Python values into SQLite-compatible values."""
-    import numpy as np
-
-    if value is None:
-        return None
-
-    if isinstance(value, pd.Timestamp):
-        return None if pd.isna(value) else value.isoformat(sep=" ")
-
-    if isinstance(value, datetime):
-        return value.isoformat(sep=" ")
-
-    if isinstance(value, date):
-        return value.isoformat()
-
-    if isinstance(value, pd.Timedelta):
-        return str(value)
-
-    try:
-        missing = pd.isna(value)
-        if isinstance(missing, (bool, np.bool_)) and missing:
-            return None
-    except (TypeError, ValueError):
-        pass
-
-    # Convert NumPy scalar values into standard Python scalars.
-    if isinstance(value, np.generic):
-        value = value.item()
-
-    return value
-
-
 def write_table(conn, name, df):
-    """Write a DataFrame to SQLite using safe scalar values."""
-    out = df.copy()
+    """Convert pandas/Python values before writing them to SQLite."""
+    from datetime import datetime, date
 
+    def safe_value(value):
+        if value is None:
+            return None
+
+        if isinstance(value, pd.Timestamp):
+            return None if pd.isna(value) else value.isoformat(sep=" ")
+
+        if isinstance(value, datetime):
+            return value.isoformat(sep=" ")
+
+        if isinstance(value, date):
+            return value.isoformat()
+
+        try:
+            missing = pd.isna(value)
+            if not hasattr(missing, "__len__") and bool(missing):
+                return None
+        except (TypeError, ValueError):
+            pass
+
+        if not isinstance(value, (str, bytes)) and hasattr(value, "item"):
+            try:
+                value = value.item()
+            except (ValueError, AttributeError):
+                pass
+
+        return value
+
+    out = df.copy()
     for column in out.columns:
-        out[column] = out[column].map(_sqlite_safe_value)
+        out[column] = out[column].map(safe_value)
 
     out.to_sql(
-        name,
-        conn,
-        if_exists="replace",
-        index=False,
-        chunksize=20000,
+        name, conn, if_exists="replace",
+        index=False, chunksize=20000
     )
-
 def read_raw(conn, table):
     return pd.read_sql_query(f'SELECT * FROM "{table}"', conn)
 
@@ -239,12 +231,26 @@ def main():
         # --------------------------------------------------------------
         roster = clean_text(read_raw(conn, "raw_shift_roster"))
         roster["week_start"] = parse_dates(roster["week_start"])
-        roster = roster.dropna(subset=["emp_id", "week_start"])
+        invalid_roster_mask = (
+            roster["emp_id"].map(lambda value: not bool(norm(value)))
+            | roster["week_start"].isna()
+            | roster["shift_code"].map(lambda value: not bool(norm(value)))
+        )
+        rejected_roster = roster.loc[invalid_roster_mask].copy()
+        if not rejected_roster.empty:
+            rejected_roster["rejection_reason"] = "Missing employee, week_start, or shift_code"
+        write_table(conn, "stg_rejected_roster_rows", rejected_roster)
+        roster = roster.loc[~invalid_roster_mask].copy()
         roster = roster.sort_values(["emp_id", "week_start", "_source_row_number"])
         roster_dups = roster.duplicated(["emp_id", "week_start"], keep="last")
-        roster_dedup_log = roster.loc[roster_dups].copy()
-        write_table(conn, "stg_roster_duplicate_log", roster_dedup_log)
-        roster = roster.loc[~roster_dups, ["emp_id", "week_start", "shift_code"]]
+        roster_dups_log = roster.loc[roster_dups].copy()
+        if not roster_dups_log.empty:
+            roster_dups_log["dedupe_reason"] = "Duplicate emp_id + week_start; kept latest source row"
+        write_table(conn, "stg_roster_duplicate_log", roster_dups_log)
+        roster = roster.loc[~roster_dups, ["emp_id", "week_start", "shift_code"]].copy()
+        roster_original_for_db = roster.copy()
+        roster_original_for_db["week_start"] = iso_date(roster_original_for_db["week_start"])
+        write_table(conn, "stg_roster_original", roster_original_for_db)
         min_week = roster["week_start"].min()
         max_week = roster["week_start"].max()
         all_weeks = pd.date_range(min_week, max_week, freq="7D")
@@ -282,8 +288,25 @@ def main():
         write_table(conn, "stg_holidays", holidays)
         holiday_keys = set(zip(holidays["holiday_date"], holidays["scope"]))
 
-        mapping = clean_text(read_raw(conn, "raw_device_mapping"))
-        mapping = mapping.drop_duplicates(["device_id", "device_user_id"], keep="last")
+        mapping_source = clean_text(read_raw(conn, "raw_device_mapping"))
+        invalid_mapping_mask = mapping_source[["device_id", "device_user_id", "emp_id"]].apply(
+            lambda column: column.map(lambda value: not bool(norm(value)))
+        ).any(axis=1)
+        rejected_mapping = mapping_source.loc[invalid_mapping_mask].copy()
+        if not rejected_mapping.empty:
+            rejected_mapping["rejection_reason"] = "Missing device_id, device_user_id, or emp_id"
+        write_table(conn, "stg_rejected_device_mapping", rejected_mapping)
+        valid_mapping = mapping_source.loc[~invalid_mapping_mask].copy()
+        mapping_duplicate_mask = valid_mapping.duplicated(
+            ["device_id", "device_user_id"], keep="last"
+        )
+        mapping_duplicates = valid_mapping.loc[mapping_duplicate_mask].copy()
+        if not mapping_duplicates.empty:
+            mapping_duplicates["rejection_reason"] = (
+                "Duplicate device_id + device_user_id mapping; kept latest source row"
+            )
+        write_table(conn, "stg_device_mapping_duplicate_log", mapping_duplicates)
+        mapping = valid_mapping.loc[~mapping_duplicate_mask].copy()
         write_table(conn, "stg_device_mapping", mapping)
 
         # --------------------------------------------------------------
@@ -622,6 +645,15 @@ def main():
         daily = daily.rename(columns={"work_date_iso": "work_date_key"})
         daily = daily.drop(columns=["hire_date", "separation_date", "is_approved_leave", "is_sunday", "is_holiday"])
         write_table(conn, "stg_attendance_daily", daily)
+
+        # --------------------------------------------------------------
+        # K. Applications: stage the bonus-source file for full raw reconciliation.
+        # Recruitment funnel analytics remains an optional bonus task.
+        # --------------------------------------------------------------
+        applications = clean_text(read_raw(conn, "raw_applications"))
+        if "stage_date" in applications.columns:
+            applications["stage_date"] = iso_date(parse_dates(applications["stage_date"]))
+        write_table(conn, "stg_applications", applications)
 
         # --------------------------------------------------------------
         # K. Basic stage counts and reconciliation evidence.

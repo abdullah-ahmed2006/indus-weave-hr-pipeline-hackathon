@@ -8,7 +8,7 @@ payroll_month,plant,dept_id,dept_name,month_end_headcount
 2026-04,Head Office,D01,Human Resources,14
 2026-04,Head Office,D02,Finance,19
 2026-04,Head Office,D03,IT,14
-2026-04,Head Office,D04,Supply Chain,18
+2026-04,Head Office,D04,Procurement,18
 2026-04,Head Office,D05,Sales & Marketing,23
 2026-04,Head Office,D06,Administration,18
 2026-04,Head Office,D07,Compliance,12
@@ -19,7 +19,7 @@ payroll_month,plant,dept_id,dept_name,month_end_headcount
 2026-04,Korangi Plant,D12,Warehouse,30
 2026-04,Korangi Plant,D13,Production Planning,25
 2026-04,SITE Plant,D14,Dyeing,112
-2026-04,SITE Plant,D15,Finishing,100
+2026-04,SITE Plant,D15,Processing,100
 2026-04,SITE Plant,D16,Maintenance,34
 2026-04,SITE Plant,D17,Quality Control,29
 2026-04,SITE Plant,D18,Warehouse,26
@@ -33,7 +33,7 @@ payroll_month,plant,dept_id,dept_name,month_end_headcount
 2026-05,Head Office,D01,Human Resources,14
 2026-05,Head Office,D02,Finance,19
 2026-05,Head Office,D03,IT,14
-2026-05,Head Office,D04,Supply Chain,18
+2026-05,Head Office,D04,Procurement,18
 2026-05,Head Office,D05,Sales & Marketing,24
 2026-05,Head Office,D06,Administration,18
 2026-05,Head Office,D07,Compliance,12
@@ -44,7 +44,7 @@ payroll_month,plant,dept_id,dept_name,month_end_headcount
 2026-05,Korangi Plant,D12,Warehouse,29
 2026-05,Korangi Plant,D13,Production Planning,25
 2026-05,SITE Plant,D14,Dyeing,111
-2026-05,SITE Plant,D15,Finishing,99
+2026-05,SITE Plant,D15,Processing,99
 2026-05,SITE Plant,D16,Maintenance,33
 2026-05,SITE Plant,D17,Quality Control,28
 2026-05,SITE Plant,D18,Warehouse,26
@@ -58,7 +58,7 @@ payroll_month,plant,dept_id,dept_name,month_end_headcount
 2026-06,Head Office,D01,Human Resources,14
 2026-06,Head Office,D02,Finance,19
 2026-06,Head Office,D03,IT,15
-2026-06,Head Office,D04,Supply Chain,21
+2026-06,Head Office,D04,Procurement,21
 2026-06,Head Office,D05,Sales & Marketing,24
 2026-06,Head Office,D06,Administration,18
 2026-06,Head Office,D07,Compliance,11

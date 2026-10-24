@@ -1,5 +1,5 @@
 -- Q01: Month-end headcount by plant and department (April-September 2026).
-WITH month_depts AS (SELECT m.payroll_month, d.dept_id, d.dept_name, d.plant FROM (SELECT payroll_month FROM employee_month_snapshot GROUP BY payroll_month) m CROSS JOIN dim_department d),
+WITH month_depts AS (SELECT m.payroll_month, d.dept_id, CASE WHEN d.renamed_on IS NOT NULL AND m.payroll_month < substr(d.renamed_on,1,7) AND NULLIF(TRIM(d.previous_name),'') IS NOT NULL THEN d.previous_name ELSE d.dept_name END AS dept_name, d.plant FROM (SELECT payroll_month FROM employee_month_snapshot GROUP BY payroll_month) m CROSS JOIN dim_department d),
 headcount AS (
   SELECT payroll_month, dept_id_month_end AS dept_id, COUNT(DISTINCT emp_id) AS month_end_headcount
   FROM employee_month_snapshot WHERE active_at_month_end=1

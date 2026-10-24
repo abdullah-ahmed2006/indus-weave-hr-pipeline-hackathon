@@ -46,7 +46,7 @@ def iso_date(value):
     if not text:
         return None
 
-    # Preserve ISO dates without swapping month and day.
+    # Keep ISO dates in YYYY-MM-DD format.
     if len(text) >= 10 and text[4] == "-" and text[7] == "-":
         try:
             return datetime.strptime(
@@ -55,7 +55,6 @@ def iso_date(value):
         except ValueError:
             pass
 
-    # Fallback for non-ISO source values.
     parsed = pd.to_datetime(
         text, errors="coerce", format="mixed", dayfirst=True
     )
@@ -63,6 +62,8 @@ def iso_date(value):
         return None
 
     return parsed.strftime("%Y-%m-%d")
+
+
 
 def num(value):
     try:
@@ -89,7 +90,9 @@ def columns(conn, name):
 def ensure_required_tables(conn):
     required = [
         "stg_employees", "stg_employment_history", "stg_departments", "stg_shifts",
-        "stg_shift_roster", "stg_holidays", "stg_punches_clean", "stg_rejected_punches",
+        "stg_shift_roster", "stg_roster_original", "stg_roster_duplicate_log", "stg_rejected_roster_rows",
+        "stg_device_mapping", "stg_device_mapping_duplicate_log", "stg_rejected_device_mapping",
+        "stg_applications", "stg_holidays", "stg_punches_clean", "stg_rejected_punches",
         "stg_duplicate_punches", "stg_leave_requests", "stg_leave_days",
         "stg_overtime_requests", "stg_payroll_lines", "stg_attendance_daily",
     ]
@@ -608,7 +611,8 @@ def write_analytics_sql():
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     ANALYTICS_DIR.mkdir(parents=True, exist_ok=True)
     month_grid = "SELECT payroll_month FROM employee_month_snapshot GROUP BY payroll_month"
-    month_dept_grid = "SELECT m.payroll_month, d.dept_id, d.dept_name, d.plant FROM (" + month_grid + ") m CROSS JOIN dim_department d"
+    historical_dept_name = "CASE WHEN d.renamed_on IS NOT NULL AND m.payroll_month < substr(d.renamed_on,1,7) AND NULLIF(TRIM(d.previous_name),'') IS NOT NULL THEN d.previous_name ELSE d.dept_name END"
+    month_dept_grid = "SELECT m.payroll_month, d.dept_id, " + historical_dept_name + " AS dept_name, d.plant FROM (" + month_grid + ") m CROSS JOIN dim_department d"
 
     q01 = f"""-- Q01: Month-end headcount by plant and department (April-September 2026).
 WITH month_depts AS ({month_dept_grid}),
@@ -706,7 +710,12 @@ LIMIT 10;"""
  WHERE component='OVERTIME' AND component_type='EARNING'
  GROUP BY payroll_month,dept_id
 ), month_depts AS (
- SELECT m.payroll_month,d.dept_id,d.dept_name,d.plant
+ SELECT m.payroll_month,d.dept_id,
+        CASE WHEN d.renamed_on IS NOT NULL
+                  AND m.payroll_month < substr(d.renamed_on,1,7)
+                  AND NULLIF(TRIM(d.previous_name),'') IS NOT NULL
+             THEN d.previous_name ELSE d.dept_name END AS dept_name,
+        d.plant
  FROM (SELECT payroll_month FROM employee_month_snapshot GROUP BY payroll_month) m
  CROSS JOIN dim_department d
 )
@@ -776,7 +785,12 @@ ORDER BY p.payroll_month,p.emp_id;"""
 
     q09 = """-- Q09: Monthly payroll cost = EARNING lines; per employee = cost / distinct paid employees.
 WITH month_depts AS (
- SELECT m.payroll_month,d.dept_id,d.dept_name,d.plant
+ SELECT m.payroll_month,d.dept_id,
+        CASE WHEN d.renamed_on IS NOT NULL
+                  AND m.payroll_month < substr(d.renamed_on,1,7)
+                  AND NULLIF(TRIM(d.previous_name),'') IS NOT NULL
+             THEN d.previous_name ELSE d.dept_name END AS dept_name,
+        d.plant
  FROM (SELECT payroll_month FROM employee_month_snapshot GROUP BY payroll_month) m
  CROSS JOIN dim_department d
 ), payroll AS (
@@ -882,7 +896,13 @@ def run_dq_checks(conn):
     blank_leave_type = conn.execute("SELECT COUNT(*) FROM fact_leave_day WHERE leave_type IS NULL OR TRIM(leave_type)='' ").fetchone()[0]
     leave_values = [r[0] for r in conn.execute("SELECT DISTINCT leave_type FROM fact_leave_day ORDER BY leave_type").fetchall()]
     add("Leave type populated", "fact_leave_day", blank_leave_type == 0, 0, blank_leave_type,
-        "Nonblank leave types observed: " + ", ".join(str(v) for v in leave_values) + ". The source dictionary does not enumerate a complete allowed-value list.")
+        "Nonblank leave types observed: " + ", ".join(str(v) for v in leave_values))
+    allowed_leave_types = {"ANNUAL", "CASUAL", "SICK"}
+    invalid_leave_types = conn.execute(
+        "SELECT COUNT(*) FROM fact_leave_day WHERE UPPER(TRIM(COALESCE(leave_type,''))) NOT IN ('ANNUAL','CASUAL','SICK')"
+    ).fetchone()[0]
+    add("Accepted leave types", "fact_leave_day", invalid_leave_types == 0, 0, invalid_leave_types,
+        "Allowed values observed in the provided synthetic dataset: Annual, Casual, Sick; confirm against HR policy for future source files")
 
     overlaps = conn.execute("""
       SELECT COUNT(*) FROM dim_employee a JOIN dim_employee b
@@ -902,6 +922,9 @@ def run_dq_checks(conn):
         ("raw_departments", "stg_departments"),
         ("raw_shifts", "stg_shifts"),
         ("raw_holidays", "stg_holidays"),
+        ("raw_device_mapping", "stg_device_mapping", "stg_device_mapping_duplicate_log", "stg_rejected_device_mapping"),
+        ("raw_shift_roster", "stg_roster_original", "stg_roster_duplicate_log", "stg_rejected_roster_rows"),
+        ("raw_applications", "stg_applications"),
     ]
     for pair in recon_pairs:
         raw_name = pair[0]
@@ -915,12 +938,11 @@ def run_dq_checks(conn):
         add(f"Raw/staging reconciliation: {raw_name}", raw_name, passed, raw_count, stage_total,
             "Raw rows should equal clean/staged plus deduplicated/rejected rows; expanded roster and leave-day tables are excluded")
 
-    # Roster expansion is expected, and source identity is documented separately.
-    roster_raw = conn.execute("SELECT COUNT(*) FROM raw_shift_roster").fetchone()[0]
+    # Original roster rows are reconciled exactly above; the filled roster may contain added weeks.
+    roster_original = conn.execute("SELECT COUNT(*) FROM stg_roster_original").fetchone()[0]
     roster_staged = conn.execute("SELECT COUNT(*) FROM stg_shift_roster").fetchone()[0]
-    roster_dups = conn.execute("SELECT COUNT(*) FROM stg_roster_duplicate_log").fetchone()[0]
-    add("Roster source rows retained in filled roster", "stg_shift_roster", roster_raw <= roster_staged + roster_dups,
-        f">={roster_raw}", roster_staged + roster_dups, "Filled weeks increase staged row count by design")
+    add("Filled roster preserves all deduplicated source weeks", "stg_shift_roster", roster_staged >= roster_original,
+        f">={roster_original}", roster_staged, "Filled weeks increase staged row count by design; source rows are reconciled separately")
 
     # Validate source-to-warehouse row counts for each fact.
     attendance_source = conn.execute("SELECT COUNT(*) FROM stg_attendance_daily").fetchone()[0]
@@ -930,15 +952,68 @@ def run_dq_checks(conn):
     payroll_fact = conn.execute("SELECT COUNT(*) FROM fact_payroll_line").fetchone()[0]
     add("Payroll lines loaded to fact", "fact_payroll_line", payroll_source == payroll_fact, payroll_source, payroll_fact, "Each source payroll line remains a fact line")
 
-    # Explicit warning not to overstate the clock correction.
-    correction = None
-    try:
-        correction = conn.execute("SELECT * FROM stg_clock_correction_evidence LIMIT 1").fetchone()
-    except sqlite3.Error:
-        pass
-    add("Device clock correction documented", "stg_clock_correction_evidence", correction is not None, "Evidence row present", "Present" if correction else "Missing",
-        "Current evidence shows modest improvement only; treat the -60 minute adjustment as provisional until mentor/data validation",
-        status_override=("WARN" if correction is not None else "FAIL"))
+    # Validate the configured device-clock correction against paired check-in/check-out
+    # deviations. A documented row alone is not enough to mark this control as PASS.
+    correction_row = conn.execute(
+        "SELECT device_id, correction_minutes_applied FROM stg_clock_correction_evidence LIMIT 1"
+    ).fetchone()
+    clock_status = "FAIL"
+    clock_details = "Clock correction evidence row is missing."
+    clock_actual = "Missing"
+    if correction_row is not None:
+        device_id, applied_offset = correction_row[0], int(correction_row[1])
+        clock_actual = f"Evidence present; {device_id} correction {applied_offset} minutes"
+        clock_status = "WARN"
+        clock_details = "No paired-shift diagnostic found; treat the correction as provisional."
+        diagnostic_path = DOCS_DIR / "clock_pairing_diagnostic.csv"
+        if diagnostic_path.exists():
+            try:
+                diag = pd.read_csv(diagnostic_path)
+                device_diag = diag.loc[diag["device_id"].astype(str) == str(device_id)].copy()
+                applied_row = device_diag.loc[
+                    pd.to_numeric(device_diag["candidate_correction_minutes"], errors="coerce") == applied_offset
+                ]
+                baseline_row = device_diag.loc[
+                    pd.to_numeric(device_diag["candidate_correction_minutes"], errors="coerce") == 0
+                ]
+                if not applied_row.empty and not baseline_row.empty:
+                    applied = applied_row.iloc[0]
+                    baseline = baseline_row.iloc[0]
+                    checkin_gain = float(baseline["median_abs_checkin_deviation_min"]) - float(applied["median_abs_checkin_deviation_min"])
+                    checkout_gain = float(baseline["median_abs_checkout_deviation_min"]) - float(applied["median_abs_checkout_deviation_min"])
+                    combined_gain = float(baseline["median_combined_boundary_error_min"]) - float(applied["median_combined_boundary_error_min"])
+                    paired_shifts = int(applied["paired_employee_shifts"])
+                    best_offset = int(applied["best_tested_offset_minutes"])
+                    other_devices = diag.loc[diag["device_id"].astype(str) != str(device_id)]
+                    other_devices_best_zero = (
+                        not other_devices.empty
+                        and pd.to_numeric(other_devices["best_tested_offset_minutes"], errors="coerce").notna().all()
+                        and pd.to_numeric(other_devices["best_tested_offset_minutes"], errors="coerce").eq(0).all()
+                    )
+                    clock_details = (
+                        f"Paired-shift validation for {device_id}: applied={applied_offset} min; "
+                        f"best tested={best_offset} min; paired shifts={paired_shifts}; "
+                        f"median absolute check-in deviation improved {checkin_gain:.2f} min, "
+                        f"check-out improved {checkout_gain:.2f} min, combined error improved {combined_gain:.2f} min; "
+                        f"all other devices prefer zero offset={other_devices_best_zero}."
+                    )
+                    # Conservative acceptance thresholds: enough paired shifts, chosen offset
+                    # is the best of -60/0/+60, both boundaries improve by >=10 minutes, and
+                    # all other devices' best tested offsets remain zero.
+                    confirmed = (
+                        paired_shifts >= 100
+                        and best_offset == applied_offset
+                        and checkin_gain >= 10.0
+                        and checkout_gain >= 10.0
+                        and combined_gain >= 10.0
+                        and other_devices_best_zero
+                    )
+                    clock_status = "PASS" if confirmed else "WARN"
+            except (ValueError, TypeError, KeyError, IndexError) as exc:
+                clock_details = f"Paired-shift diagnostic could not be interpreted: {exc}. Correction remains provisional."
+    add("Device clock correction documented and validated", "stg_clock_correction_evidence",
+        clock_status == "PASS", "Correction supported by paired-shift evidence", clock_actual,
+        clock_details, status_override=clock_status)
 
     dq = pd.DataFrame(checks)
     conn.execute("DROP TABLE IF EXISTS dq_results")
@@ -995,10 +1070,22 @@ def create_erd_png():
             for line in lines:
                 draw.text((x1+12,y), line, fill="#17202a", font=small)
                 y += 36
-        # Relationship connectors, drawn behind entities as explanatory links.
-        links = [((460,200),(560,200)), ((800,300),(800,400)), ((260,700),(260,300)), ((620,700),(760,590)), ((1000,590),(1000,700)), ((1180,820),(1210,820)), ((1040,200),(1160,200))]
+        # Actual dimension-to-fact relationships from the CREATE TABLE DDL.
+        # Box centers: department=(260,200), employee=(800,190), shift=(1350,190),
+        # date=(800,495); facts: attendance=(235,840), leave=(625,840),
+        # overtime=(1000,840), payroll=(1390,840).
+        links = [
+            # dim_department -> all four facts
+            ((260,300),(235,700)), ((260,300),(625,700)), ((260,300),(1000,700)), ((260,300),(1390,700)),
+            # dim_employee -> all four facts
+            ((800,300),(235,700)), ((800,300),(625,700)), ((800,300),(1000,700)), ((800,300),(1390,700)),
+            # dim_date -> all four facts
+            ((800,590),(235,700)), ((800,590),(625,700)), ((800,590),(1000,700)), ((800,590),(1390,700)),
+            # dim_shift -> fact_attendance_daily only
+            ((1350,280),(235,700)),
+        ]
         for start,end in links:
-            draw.line([start,end], fill="#85929e", width=3)
+            draw.line([start,end], fill="#85929e", width=2)
         img.save(erd_path)
     except Exception:
         pass

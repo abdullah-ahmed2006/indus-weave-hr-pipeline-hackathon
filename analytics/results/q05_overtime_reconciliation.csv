@@ -8,7 +8,7 @@ payroll_month,plant,dept_id,dept_name,computed_ot_hours,approved_ot_hours,paid_o
 2026-04,Head Office,D01,Human Resources,37.0,34.5,34.5,37619.0
 2026-04,Head Office,D02,Finance,73.5,72.0,72.0,92524.0
 2026-04,Head Office,D03,IT,47.5,41.0,41.0,32786.0
-2026-04,Head Office,D04,Supply Chain,67.0,57.0,57.0,50200.0
+2026-04,Head Office,D04,Procurement,67.0,57.0,57.0,50200.0
 2026-04,Head Office,D05,Sales & Marketing,46.5,44.5,44.5,61339.0
 2026-04,Head Office,D06,Administration,55.5,52.5,52.5,57542.0
 2026-04,Head Office,D07,Compliance,33.0,30.5,30.5,48894.0
@@ -19,7 +19,7 @@ payroll_month,plant,dept_id,dept_name,computed_ot_hours,approved_ot_hours,paid_o
 2026-04,Korangi Plant,D12,Warehouse,178.0,165.0,165.0,76956.0
 2026-04,Korangi Plant,D13,Production Planning,82.5,78.5,78.5,64859.0
 2026-04,SITE Plant,D14,Dyeing,289.5,559.5,559.5,254036.0
-2026-04,SITE Plant,D15,Finishing,243.5,491.0,491.0,223065.0
+2026-04,SITE Plant,D15,Processing,243.5,491.0,491.0,223065.0
 2026-04,SITE Plant,D16,Maintenance,72.0,132.5,132.5,64845.0
 2026-04,SITE Plant,D17,Quality Control,73.5,149.5,149.5,68270.0
 2026-04,SITE Plant,D18,Warehouse,64.5,124.0,124.0,55837.0
@@ -33,7 +33,7 @@ payroll_month,plant,dept_id,dept_name,computed_ot_hours,approved_ot_hours,paid_o
 2026-05,Head Office,D01,Human Resources,34.0,20.5,20.5,24875.0
 2026-05,Head Office,D02,Finance,36.5,32.0,32.0,31671.0
 2026-05,Head Office,D03,IT,33.0,32.0,32.0,26601.0
-2026-05,Head Office,D04,Supply Chain,54.0,42.0,42.0,40177.0
+2026-05,Head Office,D04,Procurement,54.0,42.0,42.0,40177.0
 2026-05,Head Office,D05,Sales & Marketing,68.5,50.0,50.0,67541.0
 2026-05,Head Office,D06,Administration,43.5,38.0,38.0,59157.0
 2026-05,Head Office,D07,Compliance,26.0,24.5,24.5,33283.0
@@ -44,7 +44,7 @@ payroll_month,plant,dept_id,dept_name,computed_ot_hours,approved_ot_hours,paid_o
 2026-05,Korangi Plant,D12,Warehouse,202.0,193.5,193.5,83517.0
 2026-05,Korangi Plant,D13,Production Planning,69.0,60.0,60.0,46432.0
 2026-05,SITE Plant,D14,Dyeing,358.0,563.0,563.0,260386.0
-2026-05,SITE Plant,D15,Finishing,235.0,393.5,393.5,176814.0
+2026-05,SITE Plant,D15,Processing,235.0,393.5,393.5,176814.0
 2026-05,SITE Plant,D16,Maintenance,93.5,178.5,178.5,79915.0
 2026-05,SITE Plant,D17,Quality Control,71.0,113.5,113.5,51870.0
 2026-05,SITE Plant,D18,Warehouse,95.5,147.0,147.0,69476.0
@@ -58,7 +58,7 @@ payroll_month,plant,dept_id,dept_name,computed_ot_hours,approved_ot_hours,paid_o
 2026-06,Head Office,D01,Human Resources,53.0,50.0,50.0,58970.0
 2026-06,Head Office,D02,Finance,74.0,61.5,61.5,48064.0
 2026-06,Head Office,D03,IT,38.0,31.0,31.0,27750.0
-2026-06,Head Office,D04,Supply Chain,42.5,36.0,36.0,34927.0
+2026-06,Head Office,D04,Procurement,42.5,36.0,36.0,34927.0
 2026-06,Head Office,D05,Sales & Marketing,40.0,39.0,39.0,40146.0
 2026-06,Head Office,D06,Administration,45.0,42.0,42.0,48649.0
 2026-06,Head Office,D07,Compliance,35.5,29.5,29.5,42787.0

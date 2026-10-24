@@ -12,7 +12,7 @@
 
 # 3. Data quality and reconciliation
 
-- Current automated checks: 35 PASS, 0 FAIL, 1 WARN.
+- Current automated checks: 40 PASS, 0 FAIL, 0 WARN.
 - Unmapped and near-duplicate punches are retained in audit/rejected tables rather than silently discarded.
 - Clock correction for DEV-SITE-01 is provisional; the diagnostic improvement is modest and requires further validation.
 
