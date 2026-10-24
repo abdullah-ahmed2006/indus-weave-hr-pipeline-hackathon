@@ -1,0 +1,21 @@
+emp_id,full_name,plant,dept_id,dept_name,approved_annual_leave_days,annual_leave_entitlement,days_over_entitlement
+E10770,Danish Iqbal,Korangi Plant,D08,Spinning,28,14.0,14.0
+E10826,Ahmed Mirza,SITE Plant,D15,Finishing,27,14.0,13.0
+E10748,Asif Ansari,Korangi Plant,D08,Spinning,25,14.0,11.0
+E10025,Arif Gill,Korangi Plant,D08,Spinning,24,14.0,10.0
+E11071,Ahmed Hussain,SITE Plant,D15,Finishing,23,14.0,9.0
+E10827,Sajid Abbasi,Korangi Plant,D09,Weaving,27,20.0,7.0
+E10250,Yasir Akhtar,SITE Plant,D17,Quality Control,20,14.0,6.0
+E10764,Adnan Jatoi,Korangi Plant,D12,Warehouse,20,14.0,6.0
+E10918,Shahid Shaikh,SITE Plant,D16,Maintenance,20,14.0,6.0
+E10421,Haris Abbasi,SITE Plant,D14,Dyeing,19,14.0,5.0
+E10993,Hina Malik,SITE Plant,D14,Dyeing,18,14.0,4.0
+E11100,Asif Akhtar,Faisalabad Plant,D20,Stitching,18,14.0,4.0
+E10121,Ahmed Siddiqui,Korangi Plant,D08,Spinning,17,14.0,3.0
+E10922,Ahmed Bhatti,Faisalabad Plant,D23,Maintenance,17,14.0,3.0
+E10505,Tariq Hashmi,SITE Plant,D15,Finishing,16,14.0,2.0
+E10706,Arif Siddiqui,Faisalabad Plant,D23,Maintenance,16,14.0,2.0
+E10560,Asif Siddiqui,SITE Plant,D15,Finishing,15,14.0,1.0
+E10960,Owais Ansari,Faisalabad Plant,D23,Maintenance,15,14.0,1.0
+E11117,Kashif Qureshi,SITE Plant,D14,Dyeing,15,14.0,1.0
+E11265,Adnan Jatoi,SITE Plant,D15,Finishing,15,14.0,1.0

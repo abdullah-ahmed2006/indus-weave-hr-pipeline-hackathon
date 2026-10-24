@@ -1,0 +1,60 @@
+payroll_month,emp_id,plant,dept_id,dept_name,total_earnings,present_days,absent_days,missing_punch_days
+2026-04,E10399,SITE Plant,D14,Dyeing,85925.0,0,26,0
+2026-04,E11064,Faisalabad Plant,D25,Warehouse,81275.0,0,25,0
+2026-04,E10491,Faisalabad Plant,D22,Packing,77400.0,0,25,0
+2026-04,E11089,Korangi Plant,D09,Weaving,75075.0,0,26,0
+2026-04,E10907,Faisalabad Plant,D21,Cutting,73525.0,0,25,0
+2026-04,E10564,Faisalabad Plant,D23,Maintenance,64225.0,0,25,0
+2026-05,E10471,Head Office,D01,Human Resources,132000.0,0,0,0
+2026-05,E10399,SITE Plant,D14,Dyeing,85925.0,0,22,0
+2026-05,E11064,Faisalabad Plant,D25,Warehouse,81275.0,0,22,0
+2026-05,E10491,Faisalabad Plant,D22,Packing,77400.0,0,22,0
+2026-05,E11089,Korangi Plant,D09,Weaving,75075.0,0,22,0
+2026-05,E10907,Faisalabad Plant,D21,Cutting,73525.0,0,22,0
+2026-05,E10564,Faisalabad Plant,D23,Maintenance,64225.0,0,22,0
+2026-05,E10397,Korangi Plant,D08,Spinning,2122.0,0,0,0
+2026-06,E10471,Head Office,D01,Human Resources,132000.0,0,0,0
+2026-06,E11222,SITE Plant,D14,Dyeing,104525.0,0,0,0
+2026-06,E10399,SITE Plant,D14,Dyeing,85925.0,0,23,0
+2026-06,E11064,Faisalabad Plant,D25,Warehouse,81275.0,0,24,0
+2026-06,E10332,Faisalabad Plant,D25,Warehouse,80500.0,0,0,0
+2026-06,E10491,Faisalabad Plant,D22,Packing,77400.0,0,24,0
+2026-06,E11089,Korangi Plant,D09,Weaving,75075.0,0,24,0
+2026-06,E10907,Faisalabad Plant,D21,Cutting,73525.0,0,24,0
+2026-06,E10989,Faisalabad Plant,D22,Packing,73525.0,0,0,0
+2026-06,E10564,Faisalabad Plant,D23,Maintenance,64225.0,0,24,0
+2026-06,E10295,SITE Plant,D15,Finishing,63450.0,0,0,0
+2026-06,E10327,Faisalabad Plant,D20,Stitching,2115.0,0,0,1
+2026-07,E10471,Head Office,D01,Human Resources,132000.0,0,0,0
+2026-07,E11222,SITE Plant,D14,Dyeing,104525.0,0,0,0
+2026-07,E10399,SITE Plant,D14,Dyeing,94450.0,0,27,0
+2026-07,E11064,Faisalabad Plant,D25,Warehouse,89025.0,0,26,0
+2026-07,E10491,Faisalabad Plant,D22,Packing,85150.0,0,26,0
+2026-07,E11089,Korangi Plant,D09,Weaving,82050.0,0,27,0
+2026-07,E10332,Faisalabad Plant,D25,Warehouse,80500.0,0,0,0
+2026-07,E10907,Faisalabad Plant,D21,Cutting,80500.0,0,26,0
+2026-07,E10989,Faisalabad Plant,D22,Packing,73525.0,0,0,0
+2026-07,E10564,Faisalabad Plant,D23,Maintenance,70425.0,0,26,0
+2026-07,E10295,SITE Plant,D15,Finishing,63450.0,0,0,0
+2026-08,E10471,Head Office,D01,Human Resources,132000.0,0,0,0
+2026-08,E11222,SITE Plant,D14,Dyeing,104525.0,0,0,0
+2026-08,E10399,SITE Plant,D14,Dyeing,94450.0,0,24,0
+2026-08,E11064,Faisalabad Plant,D25,Warehouse,89025.0,0,24,0
+2026-08,E10491,Faisalabad Plant,D22,Packing,85150.0,0,24,0
+2026-08,E11089,Korangi Plant,D09,Weaving,82050.0,0,24,0
+2026-08,E10332,Faisalabad Plant,D25,Warehouse,80500.0,0,0,0
+2026-08,E10907,Faisalabad Plant,D21,Cutting,80500.0,0,24,0
+2026-08,E10989,Faisalabad Plant,D22,Packing,73525.0,0,0,0
+2026-08,E10564,Faisalabad Plant,D23,Maintenance,70425.0,0,24,0
+2026-08,E10295,SITE Plant,D15,Finishing,63450.0,0,0,0
+2026-09,E10471,Head Office,D01,Human Resources,132000.0,0,0,0
+2026-09,E11222,SITE Plant,D14,Dyeing,104525.0,0,0,0
+2026-09,E10399,SITE Plant,D14,Dyeing,94450.0,0,26,0
+2026-09,E11064,Faisalabad Plant,D25,Warehouse,89025.0,0,26,0
+2026-09,E10491,Faisalabad Plant,D22,Packing,85150.0,0,26,0
+2026-09,E11089,Korangi Plant,D09,Weaving,82050.0,0,25,0
+2026-09,E10332,Faisalabad Plant,D25,Warehouse,80500.0,0,0,0
+2026-09,E10907,Faisalabad Plant,D21,Cutting,80500.0,0,26,0
+2026-09,E10989,Faisalabad Plant,D22,Packing,73525.0,0,0,0
+2026-09,E10564,Faisalabad Plant,D23,Maintenance,70425.0,0,26,0
+2026-09,E10295,SITE Plant,D15,Finishing,63450.0,0,0,0

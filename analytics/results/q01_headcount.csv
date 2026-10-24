@@ -1,0 +1,151 @@
+payroll_month,plant,dept_id,dept_name,month_end_headcount
+2026-04,Faisalabad Plant,D20,Stitching,148
+2026-04,Faisalabad Plant,D21,Cutting,80
+2026-04,Faisalabad Plant,D22,Packing,59
+2026-04,Faisalabad Plant,D23,Maintenance,31
+2026-04,Faisalabad Plant,D24,Quality Control,31
+2026-04,Faisalabad Plant,D25,Warehouse,22
+2026-04,Head Office,D01,Human Resources,14
+2026-04,Head Office,D02,Finance,19
+2026-04,Head Office,D03,IT,14
+2026-04,Head Office,D04,Supply Chain,18
+2026-04,Head Office,D05,Sales & Marketing,23
+2026-04,Head Office,D06,Administration,18
+2026-04,Head Office,D07,Compliance,12
+2026-04,Korangi Plant,D08,Spinning,119
+2026-04,Korangi Plant,D09,Weaving,131
+2026-04,Korangi Plant,D10,Maintenance,39
+2026-04,Korangi Plant,D11,Quality Control,35
+2026-04,Korangi Plant,D12,Warehouse,30
+2026-04,Korangi Plant,D13,Production Planning,25
+2026-04,SITE Plant,D14,Dyeing,112
+2026-04,SITE Plant,D15,Finishing,100
+2026-04,SITE Plant,D16,Maintenance,34
+2026-04,SITE Plant,D17,Quality Control,29
+2026-04,SITE Plant,D18,Warehouse,26
+2026-04,SITE Plant,D19,Utilities,30
+2026-05,Faisalabad Plant,D20,Stitching,149
+2026-05,Faisalabad Plant,D21,Cutting,80
+2026-05,Faisalabad Plant,D22,Packing,58
+2026-05,Faisalabad Plant,D23,Maintenance,31
+2026-05,Faisalabad Plant,D24,Quality Control,31
+2026-05,Faisalabad Plant,D25,Warehouse,22
+2026-05,Head Office,D01,Human Resources,14
+2026-05,Head Office,D02,Finance,19
+2026-05,Head Office,D03,IT,14
+2026-05,Head Office,D04,Supply Chain,18
+2026-05,Head Office,D05,Sales & Marketing,24
+2026-05,Head Office,D06,Administration,18
+2026-05,Head Office,D07,Compliance,12
+2026-05,Korangi Plant,D08,Spinning,116
+2026-05,Korangi Plant,D09,Weaving,130
+2026-05,Korangi Plant,D10,Maintenance,42
+2026-05,Korangi Plant,D11,Quality Control,37
+2026-05,Korangi Plant,D12,Warehouse,29
+2026-05,Korangi Plant,D13,Production Planning,25
+2026-05,SITE Plant,D14,Dyeing,111
+2026-05,SITE Plant,D15,Finishing,99
+2026-05,SITE Plant,D16,Maintenance,33
+2026-05,SITE Plant,D17,Quality Control,28
+2026-05,SITE Plant,D18,Warehouse,26
+2026-05,SITE Plant,D19,Utilities,30
+2026-06,Faisalabad Plant,D20,Stitching,146
+2026-06,Faisalabad Plant,D21,Cutting,80
+2026-06,Faisalabad Plant,D22,Packing,56
+2026-06,Faisalabad Plant,D23,Maintenance,31
+2026-06,Faisalabad Plant,D24,Quality Control,32
+2026-06,Faisalabad Plant,D25,Warehouse,22
+2026-06,Head Office,D01,Human Resources,14
+2026-06,Head Office,D02,Finance,19
+2026-06,Head Office,D03,IT,15
+2026-06,Head Office,D04,Supply Chain,21
+2026-06,Head Office,D05,Sales & Marketing,24
+2026-06,Head Office,D06,Administration,18
+2026-06,Head Office,D07,Compliance,11
+2026-06,Korangi Plant,D08,Spinning,114
+2026-06,Korangi Plant,D09,Weaving,128
+2026-06,Korangi Plant,D10,Maintenance,42
+2026-06,Korangi Plant,D11,Quality Control,39
+2026-06,Korangi Plant,D12,Warehouse,28
+2026-06,Korangi Plant,D13,Production Planning,25
+2026-06,SITE Plant,D14,Dyeing,112
+2026-06,SITE Plant,D15,Finishing,99
+2026-06,SITE Plant,D16,Maintenance,31
+2026-06,SITE Plant,D17,Quality Control,28
+2026-06,SITE Plant,D18,Warehouse,27
+2026-06,SITE Plant,D19,Utilities,30
+2026-07,Faisalabad Plant,D20,Stitching,149
+2026-07,Faisalabad Plant,D21,Cutting,79
+2026-07,Faisalabad Plant,D22,Packing,54
+2026-07,Faisalabad Plant,D23,Maintenance,30
+2026-07,Faisalabad Plant,D24,Quality Control,32
+2026-07,Faisalabad Plant,D25,Warehouse,21
+2026-07,Head Office,D01,Human Resources,13
+2026-07,Head Office,D02,Finance,19
+2026-07,Head Office,D03,IT,13
+2026-07,Head Office,D04,Supply Chain,20
+2026-07,Head Office,D05,Sales & Marketing,24
+2026-07,Head Office,D06,Administration,18
+2026-07,Head Office,D07,Compliance,12
+2026-07,Korangi Plant,D08,Spinning,114
+2026-07,Korangi Plant,D09,Weaving,126
+2026-07,Korangi Plant,D10,Maintenance,42
+2026-07,Korangi Plant,D11,Quality Control,38
+2026-07,Korangi Plant,D12,Warehouse,28
+2026-07,Korangi Plant,D13,Production Planning,24
+2026-07,SITE Plant,D14,Dyeing,107
+2026-07,SITE Plant,D15,Finishing,98
+2026-07,SITE Plant,D16,Maintenance,29
+2026-07,SITE Plant,D17,Quality Control,29
+2026-07,SITE Plant,D18,Warehouse,28
+2026-07,SITE Plant,D19,Utilities,30
+2026-08,Faisalabad Plant,D20,Stitching,148
+2026-08,Faisalabad Plant,D21,Cutting,77
+2026-08,Faisalabad Plant,D22,Packing,58
+2026-08,Faisalabad Plant,D23,Maintenance,30
+2026-08,Faisalabad Plant,D24,Quality Control,32
+2026-08,Faisalabad Plant,D25,Warehouse,21
+2026-08,Head Office,D01,Human Resources,14
+2026-08,Head Office,D02,Finance,19
+2026-08,Head Office,D03,IT,13
+2026-08,Head Office,D04,Supply Chain,19
+2026-08,Head Office,D05,Sales & Marketing,24
+2026-08,Head Office,D06,Administration,18
+2026-08,Head Office,D07,Compliance,12
+2026-08,Korangi Plant,D08,Spinning,115
+2026-08,Korangi Plant,D09,Weaving,126
+2026-08,Korangi Plant,D10,Maintenance,42
+2026-08,Korangi Plant,D11,Quality Control,38
+2026-08,Korangi Plant,D12,Warehouse,28
+2026-08,Korangi Plant,D13,Production Planning,23
+2026-08,SITE Plant,D14,Dyeing,107
+2026-08,SITE Plant,D15,Finishing,98
+2026-08,SITE Plant,D16,Maintenance,30
+2026-08,SITE Plant,D17,Quality Control,30
+2026-08,SITE Plant,D18,Warehouse,28
+2026-08,SITE Plant,D19,Utilities,32
+2026-09,Faisalabad Plant,D20,Stitching,146
+2026-09,Faisalabad Plant,D21,Cutting,77
+2026-09,Faisalabad Plant,D22,Packing,57
+2026-09,Faisalabad Plant,D23,Maintenance,30
+2026-09,Faisalabad Plant,D24,Quality Control,32
+2026-09,Faisalabad Plant,D25,Warehouse,21
+2026-09,Head Office,D01,Human Resources,14
+2026-09,Head Office,D02,Finance,19
+2026-09,Head Office,D03,IT,13
+2026-09,Head Office,D04,Supply Chain,19
+2026-09,Head Office,D05,Sales & Marketing,24
+2026-09,Head Office,D06,Administration,19
+2026-09,Head Office,D07,Compliance,12
+2026-09,Korangi Plant,D08,Spinning,115
+2026-09,Korangi Plant,D09,Weaving,126
+2026-09,Korangi Plant,D10,Maintenance,40
+2026-09,Korangi Plant,D11,Quality Control,38
+2026-09,Korangi Plant,D12,Warehouse,28
+2026-09,Korangi Plant,D13,Production Planning,23
+2026-09,SITE Plant,D14,Dyeing,106
+2026-09,SITE Plant,D15,Finishing,97
+2026-09,SITE Plant,D16,Maintenance,30
+2026-09,SITE Plant,D17,Quality Control,30
+2026-09,SITE Plant,D18,Warehouse,28
+2026-09,SITE Plant,D19,Utilities,32

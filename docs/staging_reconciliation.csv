@@ -1,0 +1,3 @@
+entity,raw_rows,clean_rows,rejected_unmapped_rows,deduplicated_rows,accounted_for,reconciles
+biometric_punches,345280,322143,6962,16175,345280,True
+employees,1316,1266,0,50,1316,True

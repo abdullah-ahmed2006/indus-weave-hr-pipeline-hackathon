@@ -1,0 +1,11 @@
+emp_id,full_name,dept_id,dept_name,late_arrival_days,total_late_minutes,avg_late_minutes
+E10580,Usman Gill,D21,Cutting,54,2465.7,45.7
+E10982,Adnan Akhtar,D13,Production Planning,49,1957.5,39.9
+E10454,Raheel Khan,D23,Maintenance,47,1977.8,42.1
+E10283,Ali Raza,D21,Cutting,46,2187.2,47.5
+E10287,Naveed Hussain,D24,Quality Control,45,2020.7,44.9
+E10741,Faisal Khan,D21,Cutting,45,2007.3,44.6
+E10192,Saad Ahmed,D23,Maintenance,43,1803.3,41.9
+E11122,Imran Hashmi,D01,Human Resources,43,1761.0,41.0
+E10901,Owais Awan,D09,Weaving,42,1750.3,41.7
+E10417,Zeeshan Hashmi,D22,Packing,42,1715.2,40.8

@@ -1,0 +1,5 @@
+device_id,mapped_punches,median_distance_unchanged_min,best_tested_correction_min,median_distance_after_test_min,improvement_min
+DEV-SITE-01,93248,40.43,-60,31.26,9.18
+DEV-FSD-01,103280,12.05,0,12.05,0.0
+DEV-HO-01,34784,11.48,0,11.48,0.0
+DEV-KOR-01,107006,11.92,0,11.92,0.0

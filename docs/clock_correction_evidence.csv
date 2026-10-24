@@ -1,0 +1,2 @@
+device_id,correction_minutes_applied,sample_median_distance_before_minutes,sample_median_distance_after_minutes,other_devices_best_tested_correction_minutes,method,decision_note
+DEV-SITE-01,-60,41.93,35.89,0,"Sampled roster-based distance to shift boundaries; 10,000 punches per device where available","DEV-SITE-01 was the only sampled outlier improved by -60 minutes; improvement is directional but modest, so validate in final demo and retain this evidence log."

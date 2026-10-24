@@ -1,0 +1,151 @@
+payroll_month,plant,dept_id,dept_name,computed_ot_hours,approved_ot_hours,paid_ot_hours,paid_ot_amount
+2026-04,Faisalabad Plant,D20,Stitching,743.5,761.5,761.5,345548.0
+2026-04,Faisalabad Plant,D21,Cutting,358.5,337.0,337.0,155995.0
+2026-04,Faisalabad Plant,D22,Packing,299.5,286.0,286.0,132061.0
+2026-04,Faisalabad Plant,D23,Maintenance,189.5,150.0,150.0,71259.0
+2026-04,Faisalabad Plant,D24,Quality Control,193.5,174.0,174.0,79300.0
+2026-04,Faisalabad Plant,D25,Warehouse,109.0,106.5,106.5,48539.0
+2026-04,Head Office,D01,Human Resources,37.0,34.5,34.5,37619.0
+2026-04,Head Office,D02,Finance,73.5,72.0,72.0,92524.0
+2026-04,Head Office,D03,IT,47.5,41.0,41.0,32786.0
+2026-04,Head Office,D04,Supply Chain,67.0,57.0,57.0,50200.0
+2026-04,Head Office,D05,Sales & Marketing,46.5,44.5,44.5,61339.0
+2026-04,Head Office,D06,Administration,55.5,52.5,52.5,57542.0
+2026-04,Head Office,D07,Compliance,33.0,30.5,30.5,48894.0
+2026-04,Korangi Plant,D08,Spinning,619.5,561.5,561.5,257580.0
+2026-04,Korangi Plant,D09,Weaving,676.0,610.5,610.5,291858.0
+2026-04,Korangi Plant,D10,Maintenance,157.0,154.0,154.0,73298.0
+2026-04,Korangi Plant,D11,Quality Control,224.0,205.0,205.0,99862.0
+2026-04,Korangi Plant,D12,Warehouse,178.0,165.0,165.0,76956.0
+2026-04,Korangi Plant,D13,Production Planning,82.5,78.5,78.5,64859.0
+2026-04,SITE Plant,D14,Dyeing,289.5,559.5,559.5,254036.0
+2026-04,SITE Plant,D15,Finishing,243.5,491.0,491.0,223065.0
+2026-04,SITE Plant,D16,Maintenance,72.0,132.5,132.5,64845.0
+2026-04,SITE Plant,D17,Quality Control,73.5,149.5,149.5,68270.0
+2026-04,SITE Plant,D18,Warehouse,64.5,124.0,124.0,55837.0
+2026-04,SITE Plant,D19,Utilities,63.0,147.5,147.5,70237.0
+2026-05,Faisalabad Plant,D20,Stitching,819.5,1008.0,1008.0,473693.0
+2026-05,Faisalabad Plant,D21,Cutting,432.5,406.5,406.5,185090.0
+2026-05,Faisalabad Plant,D22,Packing,338.5,319.5,319.5,146485.0
+2026-05,Faisalabad Plant,D23,Maintenance,217.5,201.0,201.0,95995.0
+2026-05,Faisalabad Plant,D24,Quality Control,169.0,153.5,153.5,70756.0
+2026-05,Faisalabad Plant,D25,Warehouse,154.0,144.0,144.0,65198.0
+2026-05,Head Office,D01,Human Resources,34.0,20.5,20.5,24875.0
+2026-05,Head Office,D02,Finance,36.5,32.0,32.0,31671.0
+2026-05,Head Office,D03,IT,33.0,32.0,32.0,26601.0
+2026-05,Head Office,D04,Supply Chain,54.0,42.0,42.0,40177.0
+2026-05,Head Office,D05,Sales & Marketing,68.5,50.0,50.0,67541.0
+2026-05,Head Office,D06,Administration,43.5,38.0,38.0,59157.0
+2026-05,Head Office,D07,Compliance,26.0,24.5,24.5,33283.0
+2026-05,Korangi Plant,D08,Spinning,658.0,605.0,605.0,265289.0
+2026-05,Korangi Plant,D09,Weaving,644.0,595.0,595.0,277257.0
+2026-05,Korangi Plant,D10,Maintenance,193.5,186.0,186.0,88240.0
+2026-05,Korangi Plant,D11,Quality Control,188.5,176.0,176.0,80879.0
+2026-05,Korangi Plant,D12,Warehouse,202.0,193.5,193.5,83517.0
+2026-05,Korangi Plant,D13,Production Planning,69.0,60.0,60.0,46432.0
+2026-05,SITE Plant,D14,Dyeing,358.0,563.0,563.0,260386.0
+2026-05,SITE Plant,D15,Finishing,235.0,393.5,393.5,176814.0
+2026-05,SITE Plant,D16,Maintenance,93.5,178.5,178.5,79915.0
+2026-05,SITE Plant,D17,Quality Control,71.0,113.5,113.5,51870.0
+2026-05,SITE Plant,D18,Warehouse,95.5,147.0,147.0,69476.0
+2026-05,SITE Plant,D19,Utilities,72.5,124.0,124.0,54749.0
+2026-06,Faisalabad Plant,D20,Stitching,708.0,1122.0,1122.0,527751.0
+2026-06,Faisalabad Plant,D21,Cutting,422.5,405.5,405.5,180626.0
+2026-06,Faisalabad Plant,D22,Packing,321.5,292.0,292.0,139107.0
+2026-06,Faisalabad Plant,D23,Maintenance,170.0,157.5,157.5,73515.0
+2026-06,Faisalabad Plant,D24,Quality Control,135.0,131.0,131.0,60511.0
+2026-06,Faisalabad Plant,D25,Warehouse,87.5,80.0,80.0,35146.0
+2026-06,Head Office,D01,Human Resources,53.0,50.0,50.0,58970.0
+2026-06,Head Office,D02,Finance,74.0,61.5,61.5,48064.0
+2026-06,Head Office,D03,IT,38.0,31.0,31.0,27750.0
+2026-06,Head Office,D04,Supply Chain,42.5,36.0,36.0,34927.0
+2026-06,Head Office,D05,Sales & Marketing,40.0,39.0,39.0,40146.0
+2026-06,Head Office,D06,Administration,45.0,42.0,42.0,48649.0
+2026-06,Head Office,D07,Compliance,35.5,29.5,29.5,42787.0
+2026-06,Korangi Plant,D08,Spinning,584.5,572.5,572.5,256653.0
+2026-06,Korangi Plant,D09,Weaving,646.0,614.0,614.0,287794.0
+2026-06,Korangi Plant,D10,Maintenance,224.0,200.5,200.5,91202.0
+2026-06,Korangi Plant,D11,Quality Control,173.5,165.5,165.5,85099.0
+2026-06,Korangi Plant,D12,Warehouse,155.0,153.5,153.5,71047.0
+2026-06,Korangi Plant,D13,Production Planning,98.0,86.5,86.5,72224.0
+2026-06,SITE Plant,D14,Dyeing,254.5,482.0,482.0,217646.0
+2026-06,SITE Plant,D15,Finishing,321.5,517.0,517.0,234439.0
+2026-06,SITE Plant,D16,Maintenance,116.5,180.0,180.0,87039.0
+2026-06,SITE Plant,D17,Quality Control,61.5,111.5,111.5,52829.0
+2026-06,SITE Plant,D18,Warehouse,78.5,148.5,148.5,70963.0
+2026-06,SITE Plant,D19,Utilities,99.5,180.5,180.5,80774.0
+2026-07,Faisalabad Plant,D20,Stitching,783.0,1440.5,1440.5,721695.0
+2026-07,Faisalabad Plant,D21,Cutting,411.5,386.0,386.0,186994.0
+2026-07,Faisalabad Plant,D22,Packing,326.5,297.0,297.0,157352.0
+2026-07,Faisalabad Plant,D23,Maintenance,171.5,159.5,159.5,85466.0
+2026-07,Faisalabad Plant,D24,Quality Control,191.5,174.0,174.0,84926.0
+2026-07,Faisalabad Plant,D25,Warehouse,89.0,83.0,83.0,41455.0
+2026-07,Head Office,D01,Human Resources,27.0,26.5,26.5,29332.0
+2026-07,Head Office,D02,Finance,83.5,63.5,63.5,66146.0
+2026-07,Head Office,D03,IT,25.5,24.5,24.5,24912.0
+2026-07,Head Office,D04,Supply Chain,50.5,44.0,44.0,45790.0
+2026-07,Head Office,D05,Sales & Marketing,78.0,65.0,65.0,93709.0
+2026-07,Head Office,D06,Administration,43.5,38.5,38.5,43857.0
+2026-07,Head Office,D07,Compliance,36.0,35.0,35.0,44570.0
+2026-07,Korangi Plant,D08,Spinning,633.0,607.0,607.0,297127.0
+2026-07,Korangi Plant,D09,Weaving,620.5,571.0,571.0,294397.0
+2026-07,Korangi Plant,D10,Maintenance,257.0,238.0,238.0,121897.0
+2026-07,Korangi Plant,D11,Quality Control,200.0,198.0,198.0,101399.0
+2026-07,Korangi Plant,D12,Warehouse,158.5,154.0,154.0,73394.0
+2026-07,Korangi Plant,D13,Production Planning,80.0,69.5,69.5,61935.0
+2026-07,SITE Plant,D14,Dyeing,585.0,553.5,553.5,287381.0
+2026-07,SITE Plant,D15,Finishing,458.5,435.0,435.0,211326.0
+2026-07,SITE Plant,D16,Maintenance,161.5,138.5,138.5,67823.0
+2026-07,SITE Plant,D17,Quality Control,154.5,141.0,141.0,69332.0
+2026-07,SITE Plant,D18,Warehouse,173.0,147.5,147.5,78075.0
+2026-07,SITE Plant,D19,Utilities,207.0,159.0,159.0,76460.0
+2026-08,Faisalabad Plant,D20,Stitching,874.5,1548.5,1548.5,778714.0
+2026-08,Faisalabad Plant,D21,Cutting,460.5,429.5,429.5,209981.0
+2026-08,Faisalabad Plant,D22,Packing,341.0,331.0,331.0,167674.0
+2026-08,Faisalabad Plant,D23,Maintenance,173.0,177.0,177.0,95252.0
+2026-08,Faisalabad Plant,D24,Quality Control,177.5,169.0,169.0,87568.0
+2026-08,Faisalabad Plant,D25,Warehouse,75.0,76.5,76.5,38809.0
+2026-08,Head Office,D01,Human Resources,45.0,41.5,41.5,49283.0
+2026-08,Head Office,D02,Finance,54.5,53.0,53.0,53614.0
+2026-08,Head Office,D03,IT,23.0,21.0,21.0,21030.0
+2026-08,Head Office,D04,Supply Chain,35.5,27.0,27.0,27768.0
+2026-08,Head Office,D05,Sales & Marketing,63.0,54.0,54.0,79576.0
+2026-08,Head Office,D06,Administration,43.5,33.0,33.0,45026.0
+2026-08,Head Office,D07,Compliance,49.5,49.0,49.0,65136.0
+2026-08,Korangi Plant,D08,Spinning,538.5,496.0,496.0,251905.0
+2026-08,Korangi Plant,D09,Weaving,704.0,667.5,667.5,348302.0
+2026-08,Korangi Plant,D10,Maintenance,199.5,193.0,193.0,97532.0
+2026-08,Korangi Plant,D11,Quality Control,188.0,175.0,175.0,96995.0
+2026-08,Korangi Plant,D12,Warehouse,174.5,164.0,164.0,79595.0
+2026-08,Korangi Plant,D13,Production Planning,133.0,122.5,122.5,115676.0
+2026-08,SITE Plant,D14,Dyeing,638.5,609.0,609.0,308467.0
+2026-08,SITE Plant,D15,Finishing,493.5,497.5,497.5,251651.0
+2026-08,SITE Plant,D16,Maintenance,169.5,157.5,157.5,78119.0
+2026-08,SITE Plant,D17,Quality Control,147.5,139.0,139.0,69162.0
+2026-08,SITE Plant,D18,Warehouse,143.5,124.5,124.5,62131.0
+2026-08,SITE Plant,D19,Utilities,167.0,157.5,157.5,87703.0
+2026-09,Faisalabad Plant,D20,Stitching,729.5,1778.5,1778.5,923936.0
+2026-09,Faisalabad Plant,D21,Cutting,452.5,415.5,415.5,206380.0
+2026-09,Faisalabad Plant,D22,Packing,344.0,308.0,308.0,152132.0
+2026-09,Faisalabad Plant,D23,Maintenance,119.5,113.0,113.0,60373.0
+2026-09,Faisalabad Plant,D24,Quality Control,194.5,179.0,179.0,96007.0
+2026-09,Faisalabad Plant,D25,Warehouse,118.0,116.5,116.5,55809.0
+2026-09,Head Office,D01,Human Resources,36.5,35.0,35.0,39519.0
+2026-09,Head Office,D02,Finance,59.5,51.0,51.0,61650.0
+2026-09,Head Office,D03,IT,37.5,26.0,26.0,28658.0
+2026-09,Head Office,D04,Supply Chain,63.0,56.0,56.0,54152.0
+2026-09,Head Office,D05,Sales & Marketing,52.0,46.5,46.5,53202.0
+2026-09,Head Office,D06,Administration,64.5,59.0,59.0,74210.0
+2026-09,Head Office,D07,Compliance,22.0,19.0,19.0,21589.0
+2026-09,Korangi Plant,D08,Spinning,536.0,502.0,502.0,248543.0
+2026-09,Korangi Plant,D09,Weaving,670.5,627.0,627.0,324099.0
+2026-09,Korangi Plant,D10,Maintenance,185.5,172.0,172.0,84694.0
+2026-09,Korangi Plant,D11,Quality Control,196.0,184.5,184.5,106241.0
+2026-09,Korangi Plant,D12,Warehouse,118.0,109.0,109.0,53610.0
+2026-09,Korangi Plant,D13,Production Planning,63.5,57.5,57.5,56186.0
+2026-09,SITE Plant,D14,Dyeing,525.5,485.5,485.5,237958.0
+2026-09,SITE Plant,D15,Finishing,550.0,500.0,500.0,252240.0
+2026-09,SITE Plant,D16,Maintenance,145.0,137.5,137.5,69268.0
+2026-09,SITE Plant,D17,Quality Control,152.0,144.0,144.0,68064.0
+2026-09,SITE Plant,D18,Warehouse,173.0,149.0,149.0,74363.0
+2026-09,SITE Plant,D19,Utilities,167.0,147.5,147.5,72275.0

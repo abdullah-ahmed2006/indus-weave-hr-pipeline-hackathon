@@ -1,0 +1,13 @@
+source_file,table_name,source_rows,table_rows,expected_rows_from_pdf,source_matches_table,matches_pdf_count
+applications.csv,raw_applications,3835,3835,3835,True,True
+biometric_punches.csv,raw_biometric_punches,345280,345280,345280,True,True
+departments.csv,raw_departments,25,25,25,True,True
+device_mapping.csv,raw_device_mapping,1260,1260,1260,True,True
+employees.csv,raw_employees,1316,1316,1316,True,True
+employment_history.csv,raw_employment_history,3686,3686,3686,True,True
+holidays.csv,raw_holidays,12,12,12,True,True
+overtime_requests.csv,raw_overtime_requests,22098,22098,22098,True,True
+payroll_lines.csv,raw_payroll_lines,53617,53617,53617,True,True
+shift_roster.csv,raw_shift_roster,36402,36402,36402,True,True
+leave_requests.json,raw_leave_requests,5372,5372,5372,True,True
+shifts.json,raw_shifts,4,4,4,True,True

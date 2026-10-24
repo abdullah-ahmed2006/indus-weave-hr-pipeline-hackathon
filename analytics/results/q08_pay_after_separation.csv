@@ -1,0 +1,22 @@
+emp_id,payroll_month,separation_date,plant,department_id,dept_name,total_earnings
+E10471,2026-05,2026-04-23,Head Office,D01,Human Resources,132000.0
+E10295,2026-06,2026-05-11,SITE Plant,D15,Finishing,63450.0
+E10332,2026-06,2026-05-14,Faisalabad Plant,D25,Warehouse,80500.0
+E10471,2026-06,2026-04-23,Head Office,D01,Human Resources,132000.0
+E10989,2026-06,2026-05-18,Faisalabad Plant,D22,Packing,73525.0
+E11222,2026-06,2026-05-16,SITE Plant,D14,Dyeing,104525.0
+E10295,2026-07,2026-05-11,SITE Plant,D15,Finishing,63450.0
+E10332,2026-07,2026-05-14,Faisalabad Plant,D25,Warehouse,80500.0
+E10471,2026-07,2026-04-23,Head Office,D01,Human Resources,132000.0
+E10989,2026-07,2026-05-18,Faisalabad Plant,D22,Packing,73525.0
+E11222,2026-07,2026-05-16,SITE Plant,D14,Dyeing,104525.0
+E10295,2026-08,2026-05-11,SITE Plant,D15,Finishing,63450.0
+E10332,2026-08,2026-05-14,Faisalabad Plant,D25,Warehouse,80500.0
+E10471,2026-08,2026-04-23,Head Office,D01,Human Resources,132000.0
+E10989,2026-08,2026-05-18,Faisalabad Plant,D22,Packing,73525.0
+E11222,2026-08,2026-05-16,SITE Plant,D14,Dyeing,104525.0
+E10295,2026-09,2026-05-11,SITE Plant,D15,Finishing,63450.0
+E10332,2026-09,2026-05-14,Faisalabad Plant,D25,Warehouse,80500.0
+E10471,2026-09,2026-04-23,Head Office,D01,Human Resources,132000.0
+E10989,2026-09,2026-05-18,Faisalabad Plant,D22,Packing,73525.0
+E11222,2026-09,2026-05-16,SITE Plant,D14,Dyeing,104525.0

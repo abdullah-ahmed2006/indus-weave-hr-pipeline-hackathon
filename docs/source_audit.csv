@@ -1,0 +1,13 @@
+file_name,format,actual_records,expected_records,count_matches,column_count,blank_cells,fully_duplicate_rows,json_keys,json_list_members
+applications.csv,CSV,3835,3835,True,6,0.0,0.0,,
+biometric_punches.csv,CSV,345280,345280,True,4,0.0,0.0,,
+departments.csv,CSV,25,25,True,6,46.0,0.0,,
+device_mapping.csv,CSV,1260,1260,True,4,0.0,0.0,,
+employees.csv,CSV,1316,1316,True,16,1226.0,0.0,,
+employment_history.csv,CSV,3686,3686,True,8,1266.0,0.0,,
+holidays.csv,CSV,12,12,True,3,0.0,0.0,,
+overtime_requests.csv,CSV,22098,22098,True,8,3518.0,0.0,,
+payroll_lines.csv,CSV,53617,53617,True,7,43817.0,0.0,,
+shift_roster.csv,CSV,36402,36402,True,3,0.0,0.0,,
+leave_requests.json,JSON,5372,5372,True,6,,,"request_id, employee, leave, submitted_at, approvals, cancelled_at",{}
+shifts.json,JSON,4,4,True,1,,,shifts,"{""shifts"": 4}"
